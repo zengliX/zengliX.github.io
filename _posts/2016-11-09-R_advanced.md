@@ -1,10 +1,11 @@
 ---
 title:  "Useful R tools"
-date:   2016-11-09
+date:   2016-11-16
 layout: single
 author_profile: true
 comments: true
 ---
+
 A great advantage of R over other statistical software (such as SAS, STATA) is that it is open source, and allows millions of programmers to contribute to the community.
 
 Tons of R packages are being created everyday. Mastering a couple of useful packages can help a great deal in daily statistical analysis. This article is indended to introduce you to a few widely-used R packages in topics such as data cleanning, data presentation, and advanced plotting.
@@ -190,6 +191,7 @@ Plot `y` against `x`, and points are grouped by `group_var`, and point size dete
 - Add legends:	
 
 ### Frequently used commands:
+
 ```r
 + xlab('xlab name') # add x/y axis names
 
