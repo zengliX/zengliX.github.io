@@ -31,7 +31,7 @@ After you run `bundle install`, all the dependencies of **minimal-mistakes** sho
 Type `bundle exec jekyll serve`, and then a template website will be locally hosted at [localhost:4000/](localhost:4000/).
 
 It should look something like this:   
-![fresh site](/assets/website_tut/fresh.png)
+![fresh site](/pics/website_tut/fresh.png)
 
 Now there are a lot of stuff you can do. 
 Like setting up site title on topleft corner, changing author name, biography, adding social sharings etc. You can find corresponding fields of all of these in `_config.yml` (refer to [configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/)).
@@ -86,7 +86,7 @@ This is my blog page.
 
 Be sure the `permalink:` matches the `url` in `navigation.yml` file.
 Generate the website again, and look what's new:   
-![blogs](/assets/website_tut/blog.png)
+![blogs](/pics/website_tut/blog.png)
 
 That's basically how a new webpage tab is added.
 
