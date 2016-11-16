@@ -11,6 +11,10 @@ I had no experience of HTML or CSS language, but still managed to get the websit
 
 I wouldn't go through every step of the process in great detail as that would be too much text. But I'll refer you to corresponding documents which will likely guide you through each of them. 
 
+
+### Other resource:
+- Learning about Github Pages: [Github hosting](http://jmcglone.com/guides/github-pages/)
+
 ## Step 1: install _Jekyll_ and _minimal-mistakes_ theme and generate template website
 
 ### install _Jekyll_
@@ -27,7 +31,7 @@ After you run `bundle install`, all the dependencies of **minimal-mistakes** sho
 Type `bundle exec jekyll serve`, and then a template website will be locally hosted at [localhost:4000/](localhost:4000/).
 
 It should look something like this:   
-![fresh site](/pics/website_tut/fresh.png)
+![fresh site](/assets/website_tut/fresh.png)
 
 Now there are a lot of stuff you can do. 
 Like setting up site title on topleft corner, changing author name, biography, adding social sharings etc. You can find corresponding fields of all of these in `_config.yml` (refer to [configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/)).
@@ -82,11 +86,50 @@ This is my blog page.
 
 Be sure the `permalink:` matches the `url` in `navigation.yml` file.
 Generate the website again, and look what's new:   
-![blogs](/pics/website_tut/blog.png)
+![blogs](/assets/website_tut/blog.png)
 
 That's basically how a new webpage tab is added.
 
 ## Step 3: add posts
+Right now your Blog page is just a single page. Next, we are going to add posts to this page.
+
+### Posts
+Posts should be kept in `_posts` folder and named after `YEAR-MONTH-DAY-filename.md` so that _minimal-mistakes_ can correctly identify them.
+
+An example post markdown file:
+
+```md
+---
+layout: single
+title:  "My first post"
+date:   2016-11-11
+---
+
+my first post looks just fine
+```
+
+where `layout:single` specifies this is a single page post; `title` would appear on top of page; `date` keeps time of "latest update", and could be used to sort your post. There are also a bunch of other parameters you can specify: [other parameters](https://mmistakes.github.io/minimal-mistakes/docs/posts/).
+
+Let's create this toy post `toy.md` and put it in `_posts`. 
+
+### Modify page file to include posts
+In order to put `top.md` on you Blog page, you need to add commands in `blogs.md` to manually include it.
+ 
+There are many ways to do this. I'll just give one example:   
+open the previous `blogs.md` file and add the following lines:
+
+```md
+ {% for post in site.posts %}
+ 	{% include archive-single.html %}
+ {% endfor %}
+```
+
+This is basically [Liquid language](http://shopify.github.io/liquid/). You can adapt this block of code to get different display: sort by year, month or category etc.
+ 
+Rename `toy.md`  with prefix `YEAR-MONTH-DAY`. Then you can see the it on Blog page:
+
+[new blog](/my_website/pics/website_tut/new_blog.png)
+
 
 ## Step 4: use Github for hosting
 
