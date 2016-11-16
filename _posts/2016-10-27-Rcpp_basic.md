@@ -5,6 +5,7 @@ layout: single
 author_profile: true
 comments: true
 ---
+
 Pakcage _**Rcpp**_ allows you to use _C++_ or _C_ code in an R environment. It's a great tool to enhance speed of your program, at the price of longer programming and harder debugging. But when it finally works out, it's totally worth it.
 
 On _stackoverflow_ (as of date 2016/9/22), number of **r** tagged questions is 153199, while number of **rcpp** tagged questions is 1193. Only 1% of the questions asked are about Rcpp. This implies the fact that not that many R users are also Rcpp users. The lack in population leads to incomplete documentation, and limited references you can find when you get into trouble during Rcpp programming.
@@ -54,6 +55,7 @@ In Rcpp, the main important data structures are:
 
 ### NumericVector
 - Basics:
+
 ```c
  NumericVector v (3);  // rep(0,3)
  NumericVector v {1,2,3};
@@ -78,6 +80,7 @@ In Rcpp, the main important data structures are:
 
 ### NumericMatrix
 * Basic
+
 ```c
 NumericMatrix M; // multiple initiation methods as  NumericVector
 M.length(); // total elements of M
@@ -90,10 +93,12 @@ More operations of Matrix in  _**RcppArmadillo**_ Section.
 
 
 ### DataFrame
+
 ```c
 DataFrame df = DataFrame::create(Named("a1")=v1, \_["a2"] =v2);} // OK to do without names
 ```
 ### List
+
 ```c
 // names can be added as well following same routine as in DataFrame
 List L = List::create (v1,v2); 
@@ -103,6 +108,7 @@ int K =  Mylist["var_name"];
 
 ## Use R Functions
 Example:
+
 ```c
 //example 1: use R function
 Function dnorm("dnorm");
@@ -124,6 +130,7 @@ Transition from C++ to R takes a lot of time. Always try to find function suppor
 - Basic variable types: **arma::mat, arma::vec**
 
 ### arma:mat
+
 ```c
 // initialization
 arma::mat M; // initializes a 0 size matrix
@@ -155,6 +162,7 @@ M.cols(index_vec), M.rows(index_vec)
 
 ### arma::vec
 **arma::vec** is also treated as **arma::mat** with only one column.
+
 ```c
 	// basics
 	arma::vec V;
@@ -168,6 +176,7 @@ M.cols(index_vec), M.rows(index_vec)
 
 ### Cube
 Cube is three dimensional array. Less often used than **arma::mat, arma::vec**, but also useful.
+
 ```c
 //construtors
 arma::cube x(n_row, n_col, n_slice); // all 0
@@ -190,6 +199,7 @@ This section, I put in some useful functions mostly shared by both _arma::mat_ a
 - **Element-wise functions**: [element-wise](http://arma.sourceforge.net/docs.html#misc_fns).
 - **Constructors**: [mat constructor](http://arma.sourceforge.net/docs.html#constructors_mat) and [mat advanced constructor](http://arma.sourceforge.net/docs.html#adv_constructors_mat).
 - others:
+
 ```c
 	// iterators
 	arma::vec::iterator it; // arma::vec::const_iterator for read only
@@ -220,6 +230,7 @@ This section, I put in some useful functions mostly shared by both _arma::mat_ a
 
 ### useful topics
 - use logical vector to access submatrix:
+
 ```c
 arma::mat matrix_sub(arma::mat M, LogicalVector a, int b)
 {
@@ -237,8 +248,10 @@ arma::mat matrix_sub(arma::mat M, LogicalVector a, int b)
   return out;
 }
 ```
-	We first convert the logical vector `a` into `colvec` or `rowvec`, on which we can use the `find(expr)` function. `find` return the index (type `uvec`) where `expr` is true, and that index can be used to get submatrix.	
-	More on how to use find: [find](http://arma.sourceforge.net/docs.html#find).
+
+We first convert the logical vector `a` into `colvec` or `rowvec`, on which we can use the `find(expr)` function. `find` return the index (type `uvec`) where `expr` is true, and that index can be used to get submatrix.	
+
+More on how to use find: [find](http://arma.sourceforge.net/docs.html#find).
 	
 
 ## Work with Distributions
