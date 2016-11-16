@@ -118,17 +118,13 @@ In order to put `top.md` on you Blog page, you need to add commands in `blogs.md
 There are many ways to do this. I'll just give one example:   
 open the previous `blogs.md` file and add the following lines:
 
-```md
- {% for post in site.posts %}
- 	{% include archive-single.html %}
- {% endfor %}
-```
+![addToPage](/my_website/pics/website_tut/addToPage.png)
 
 This is basically [Liquid language](http://shopify.github.io/liquid/). You can adapt this block of code to get different display: sort by year, month or category etc.
  
 Rename `toy.md`  with prefix `YEAR-MONTH-DAY`. Then you can see the it on Blog page:
 
-[new blog](/my_website/pics/website_tut/new_blog.png)
+![new blog](/my_website/pics/website_tut/new_blog.png)
 
 
 ## Step 4: use Github for hosting
