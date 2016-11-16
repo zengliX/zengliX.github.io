@@ -154,6 +154,7 @@ The first command group data rows by `group_var`, then the second command will r
 
 ## <a name="ggplot2"></a> Use _ggplot2_ for data presentation
 ### General syntax of **ggplot2**:
+
 ```r
 pic = ggplot(data = <DATA>) + 
 	   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
@@ -190,7 +191,7 @@ Plot `y` against `x`, and points are grouped by `group_var`, and point size dete
 
 - Add legends:	
 
-### Frequently used commands:
+### Frequently used commands:   
 
 ```r
 + xlab('xlab name') # add x/y axis names
