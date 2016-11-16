@@ -6,19 +6,20 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
+#theme : minimal-mistakes-jekyll
 locale                   : "en"
-title                    : "Site Title"
+title                    : "Li Zeng"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Li Zeng"
+description              : "Powered by Jekyll and minimal-mistakes theme"
+url                      : "https://github.io.mmistakes" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : "/others/teaser.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
+  provider               : "facebook" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -77,30 +78,30 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
+  name             : "Li Zeng"
+  avatar           : "/others/profile.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Biostatistics Ph.D at Yale"
+  location         : "New Haven, CT"
+  email            : "li.zeng@yale.edu"
   uri              :
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "li.zeng.188"
   foursquare       :
-  github           :
+  github           : "zengliX"
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "li-zeng-154a2551?trk=nav_responsive_tab_profile_pic"
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : "Curious_Cat_zZ"
   vine             :
   weibo            :
   xing             :
@@ -241,6 +242,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true # true
       share: true
       related: true
