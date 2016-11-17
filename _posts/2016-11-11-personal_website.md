@@ -1,6 +1,6 @@
 ---
 title:  "How is this website built? (Jekyll and Minimal-mistakes theme)"
-date:   2016-11-15
+date:   2016-11-17
 layout: single
 author_profile: true
 comments: true
@@ -128,6 +128,53 @@ Rename `toy.md`  with prefix `YEAR-MONTH-DAY`. Then you can see the it on Blog p
 
 
 ## Step 4: use Github for hosting
+[Github pages](https://pages.github.com/) is a great choice for free hosting. If you create a github repository named `username.github.io`, it will automatically convert the contents to  a webpage at address `username.github.io`. However to make this work, it takes more than just uploading all the related local files to the repository. 
+
+The safest way is to copy the repository of [minimal mistakes](https://github.com/mmistakes/minimal-mistakes), and replace some files with your own version. Steps as below:
+
+- Copy **minmal mistakes**:
+
+```bash
+# create a new folder for this online version website
+mkdir GitPage
+cd GitPage
+
+# initiate git repository
+git init
+
+# add minimal-mistakes repository to your remote
+git remote add minimal "https://github.com/mmistakes/minimal-mistakes"
+# clone the repository to your folder
+git pull minimal master
+```
+
+- Customize the files:   
+	After you pull all the stuff, you get a version of [minimal mistakes website](https://mmistakes.github.io/minimal-mistakes/) on your computer. We want to keep the framework, remove the contents and put our stuff in. 
+	
+	- You can safely delete folders `/docs` and `/test`. 
+	- replace `/_data/navigation.yml`, `/_data/ui-text.yml` and `/_config.yml` with your own version.
+	- move your `_pages` and `_posts` folder to here
+
+- Push your customized version online:
+	Create the `username.github.io` repository as mensioned previously.
+	
+```bash
+# add your github repository to remote
+git remote add origin "ADDRESS.OF.YOUR.GITHUB.REPOSITORY"
+
+# track all files in GitPage folder and stage a commit
+git add .
+git commit -a -m "first commit"
+
+# push the folder online
+git push origin master
+```
+
+
+If every step goes well, your personal website should be alive at "username.github.io"!
+
+![ohyeah](https://www.residentadvisor.net/images/labels/oh!yeah!.jpg) 
+	
 
 ## Step 5: customize website style (to be updated)
 Now the website is up and running, everything's great. However, if you are eager to modify the website style to better fit your taste, it's gonna cost a little more work.  
