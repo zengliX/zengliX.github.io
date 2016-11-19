@@ -11,5 +11,7 @@ main:
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
+  #- title: "Tags"
+  #  url: /tags/
   - title: "External Links"
     url: /links/
