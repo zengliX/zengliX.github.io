@@ -1,10 +1,13 @@
 ---
 title:  "Markdown Basics"
-date:   2016-11-10
+date:   2016-10-25
 layout: single
 author_profile: true
 comments: true
+tags: [markdown, latex]
 ---
+
+
 
 _**Markdown**_ is not as fancy as _Latex_, doesn't have many typesetting features as the latter does, but it's very useful in daily non-serious publications: such as online articles, lecture notes or research notes.
 
@@ -13,7 +16,6 @@ _Latex_ is better suited for serious academic writing and requires a lot of time
 ## Typeface
 Italic : `_an italic phrase_` _an italic phrase_  
  Bold: `**a bold phrase**`  **a bold phrase**  
- Seems also itatlic? : `*don't know the name*` *don't know the name*  
 
 And they can be embedded as well: **_both italic and bold_**
 
@@ -27,20 +29,25 @@ Example inputs:
 ##### smaller header
 ###### smallest header
 ```
-Outputs:
->### medium header
->#### small header
->##### smaller header
->###### smallest header
+Outputs:   
+### medium header
+#### small header
+##### smaller header
+###### smallest header
 
 You can use up to 6 \# signs.
 
-## Links
-### link to website
-You can incorporate links in sentences with the syntax: \[text\](link address).  
+## Links   
+
+### link to website   
+
+You can incorporate links in sentences with the syntax: `\[text\](link address)`.  
+
 Example: here is the link to [Github](https://github.com/), generated from code `[Github](https://github.com/)`  
+
 We can also do it this way: `[Github][label1]` -> [also a link to Github][label1], and define `[label1]` later in  file:  
 `[label1]:https://github.com/`
+[label1]:https://github.com/
 
 ### link to online images
 Could also use the same syntax to include images, just add `!` exclamation mark in the front:  
@@ -52,12 +59,14 @@ Could also use the same syntax to include images, just add `!` exclamation mark 
 
 ### link to local images
 ```
-![local](/pics/batman.png)
+![local](/assets/batman.png)
 ```
-![local](/pics/batman.png)
+![local](/assets/batman.png)
 
 ### link to text on local page (named anchor)
-This is extremely useful if you write a long page, which makes it a headache if you have to scroll down  and down to reach certain text. The way **named anchor** works is that, you can leave an anchor at the target text, and then create a link to it where you need.
+This is extremely useful if you write a long page, which makes it a headache if you have to scroll down  and down to reach certain text. 
+
+The way **named anchor** works is that, you can leave an anchor at the target text, and then create a link to it where you need.
 
 ```md
 //create anchor at target text
@@ -71,11 +80,16 @@ This is extremely useful if you write a long page, which makes it a headache if 
 
 So here is the link to [blockquotes](#blockquotes). 
 
-The linked text will appear in other color. If you don't want this effect, simply write `</a>` right after `<a name="***">`. This closely resembles the _html_ language. The front `< >` opens a tag, while the latter `< >` closes a tag.
+The linked text will appear in other color. If you don't want this effect, simply write `</a>` right after `<a name="***">`. This is basically  _html_ language. The front `< >` opens a tag, while the latter `< >` closes a tag.
 
 ## <a name="blockquotes"> Blockquotes </a>
 Use the "greater than" sign `>` to quote a line:  
-> "Ignorance **is** _power_"
+
+```md
+> "let me do _a_  **quote** "
+```
+
+> "let me do _a_  **quote**"
 
 Obviously, you can include all kinds of Markdown effects as well.
 
@@ -148,36 +162,28 @@ cell 21 | cell 22
 
 ## Markdown $\LaTeX$ and Math
 ### Math
+
 - use double dollar sign `$$ contents $$` to center math equations:
 
-	```
-	$$y_{ij}= \sum_{k=1}^N a_{ik}b_{kj} \exp(c_k)$$
-	```
+```
+$$y_{ij}= \sum_{k=1}^N a_{ik}b_{kj} \exp(c_k)$$
+```
 	
-	$$y_{ij}= \sum_{k=1}^N a_{ik}b_{kj} \exp(c_k)$$
+$$y_{ij}= \sum_{k=1}^N a_{ik}b_{kj} \exp(c_k)$$
 
 - use single dollar sign `$ content $` to include inline math equation:
 
-	```
-	I get $cos(x)y$ from $\frac{\partial sin(x)y}{\partial x}$
-	```
+```
+I get $cos(x)y$ from $\frac{\partial sin(x)y}{\partial x}$
+```
 
-	I get $cos(x)y$ from $\frac{\partial sin(x)y}{\partial x}$.
+I get $cos(x)y$ from $\frac{\partial sin(x)y}{\partial x}$.
 	
 Rules are the same as in _Latex_.
 
-### LaTeX
-Recently I found even new _Latex_ functions can be defined using **Markdown**. Just to put a simple example here:
-
-```
-[//]:  build latex function in $$
-$\newcommand{\myfun}[2] { #1 #2 \ is \ awesome! }$  
-$\myfun{Power}{God}$
-```
-
-
 
 ## Others
+
 ### make new lines
 By default, Markdown only jump one line after your 'enter'. But when sometimes you want a bit more space between lines, and your Markdown compiler supports _html_, you can write one line with `<br><br>`, and that line would appear blank.
 
