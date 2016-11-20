@@ -5,7 +5,7 @@ permalink: /About/
 author_profile: true
 ---
 
-<img src="/pics/profile_big.png" alt="Drawing" style="width: 300px;float: right" hspace="20"/>
+<img src="/pics/profile_big.png" alt="Drawing" style="width: 300px;float: right;margin:32px" hspace="30px"/>
 I am a 4th year PhD student at the Department of Biostatistics, Yale University. My major research concentration is Statistical Genomics. I have experience working with high dimensional genomic data using Bayesian Models as well as various Statistical Learning tools.    
 I am interested in learning more about state-of-the-art Statistical Learning methods, and applying them to solve real world problems.
 
@@ -23,4 +23,3 @@ I am interested in learning more about state-of-the-art Statistical Learning met
 
 ### Research Interests:
 Bayesian Statistics, Statistical Learning, Network Inference
-
