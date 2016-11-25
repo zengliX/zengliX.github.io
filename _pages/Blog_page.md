@@ -8,6 +8,7 @@ comments: true
 
 Most of my blogs are technical blogs written mainly for my own reference. I'd be happy if any of you find them useful too.
 
+
 <ul>
   {% for post in site.posts %}
     {% unless post.next %}
@@ -23,3 +24,7 @@ Most of my blogs are technical blogs written mainly for my own reference. I'd be
    {% include archive-single.html %}
   {% endfor %}
 </ul>
+
+
+### Issues:
+- LaTeX math are not displayed well
