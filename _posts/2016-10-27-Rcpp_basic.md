@@ -4,8 +4,8 @@ date:   2016-10-27
 layout: single
 author_profile: true
 comments: true
+tags: 
 ---
-
 Pakcage _**Rcpp**_ allows you to use _C++_ or _C_ code in an R environment. It's a great tool to enhance speed of your program, at the price of longer programming and harder debugging. But when it finally works out, it's totally worth it.
 
 On _stackoverflow_ (as of date 2016/9/22), number of **r** tagged questions is 153199, while number of **rcpp** tagged questions is 1193. Only 1% of the questions asked are about Rcpp. This implies the fact that not that many R users are also Rcpp users. The lack in population leads to incomplete documentation, and limited references you can find when you get into trouble during Rcpp programming.
@@ -50,8 +50,6 @@ return x+1;
 
 
 ## Rcpp Data Structure
-In Rcpp, the main important data structures are:
-**NumericVector, NumericMatrix, LogicalVector, LogicalMatrix**. There are also **LogicalVecor, LogicalMatrix**, which can make life easier when doing subsetting.
 
 ### NumericVector
 - Basics:
@@ -76,7 +74,7 @@ In Rcpp, the main important data structures are:
  NumericVector::iterator it; // 'it' is then a pointer to the head of the vector
 ```
 
-	- What you get from logical vector subsetting `v[u]` is a pointer. To be able to use it, you need to wrap it up into whatever type you want it to have (eg. `as<NumericVector>(v[u])`)
+   What you get from logical vector subsetting `v[u]` is a pointer. To be able to use it, you need to wrap it up into whatever type you want it to have (eg. `as<NumericVector>(v[u])`)
 
 ### NumericMatrix
 * Basic
@@ -218,6 +216,9 @@ This section, I put in some useful functions mostly shared by both _arma::mat_ a
 	ones<vec_type>(n_elem); ones<mat_type>(dim1, dim2)
 	randu<type>(dim1, dim2, dim3); //unif(0,1); type can be : vec, mat, cube
 	randu<type>(dim1, dim2, dim3); // N(0,1)
+	zeros<vector_type/mat_type/cube_type>(...); // initiation with 0s
+	//others
+	.min();.max(); // get minimum maximum
 ```
 
 - Type conversion:   
@@ -229,7 +230,7 @@ This section, I put in some useful functions mostly shared by both _arma::mat_ a
 
 
 ### useful topics
-- use logical vector to access submatrix:
+- use logical vector to access submatrix/subvector:
 
 ```c
 arma::mat matrix_sub(arma::mat M, LogicalVector a, int b)
@@ -249,7 +250,16 @@ arma::mat matrix_sub(arma::mat M, LogicalVector a, int b)
 }
 ```
 
-We first convert the logical vector `a` into `colvec` or `rowvec`, on which we can use the `find(expr)` function. `find` return the index (type `uvec`) where `expr` is true, and that index can be used to get submatrix.	
+We first convert the logical vector `a` into `colvec` or `rowvec`, on which we can use the `find(expr)` function. `find` return the index (type `uvec`) where `expr` is true, and that index can be used to get submatrix.
+
+For vector, the steps can be easier:
+
+```c
+// convert logical vector to uvec
+arma::uvec q = as<arma::uvec>(a);
+// use .elem() function to get subvector
+return v.elem(find(q));
+```
 
 More on how to use find: [find](http://arma.sourceforge.net/docs.html#find).
 	
@@ -303,8 +313,14 @@ Rcerr << "Error message" ;
 `seq(int start,int end)` , it's the same as R `seq( , ,by=1)`. The return type is _Rcpp::Range_, need to use `wrap()` function to make it a NumericVector.
 
 - R _sample()_:  
- There's no direct equivalent function in Rcpp. But for simple cases, we can adapt from `R::runif()` to achieve our goal.   
- For example, when we want to sample one integer from `c(a:b)`, we can do `int out=R::runif(a,b+1)`.
+  For simple cases, we can adapt from `R::runif()` to achieve our goal.   
+ For example, when we want to sample one integer from `c(a:b)`, we can do `int out=R::runif(a,b+1)`.   
+ 
+ There is an equivalent `sample` function in `<sample.h>` file. To use it, we need to first `#include <RcppArmadilloExtensions/sample.h>` and follow the syntax:   
+ `Rcpp::RcppArmadillo::sample(sample_set,int size, bool replacement, weight_vec)`.
+ 
+ See [stackoverflow:sample](http://stackoverflow.com/questions/26384959/rcpp-r-sample-equivalent-from-a-numericvector).
+ 
 
 - _max()_  equivalent:  
 	`max( obj )` : obj can be _NumericVector_
