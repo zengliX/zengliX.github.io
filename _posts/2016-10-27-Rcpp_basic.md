@@ -1,11 +1,12 @@
 ---
 title:  "Introduction to Rcpp: making R much much faster"
-date:   2016-10-27
+date:   2016-11-29
 layout: single
 author_profile: true
 comments: true
-tags: 
+tags: [R]
 ---
+
 Pakcage _**Rcpp**_ allows you to use _C++_ or _C_ code in an R environment. It's a great tool to enhance speed of your program, at the price of longer programming and harder debugging. But when it finally works out, it's totally worth it.
 
 On _stackoverflow_ (as of date 2016/9/22), number of **r** tagged questions is 153199, while number of **rcpp** tagged questions is 1193. Only 1% of the questions asked are about Rcpp. This implies the fact that not that many R users are also Rcpp users. The lack in population leads to incomplete documentation, and limited references you can find when you get into trouble during Rcpp programming.
@@ -93,7 +94,7 @@ More operations of Matrix in  _**RcppArmadillo**_ Section.
 ### DataFrame
 
 ```c
-DataFrame df = DataFrame::create(Named("a1")=v1, \_["a2"] =v2);} // OK to do without names
+DataFrame df = DataFrame::create(Named("a1")=v1, _["a2"] =v2);} // OK to do without names
 ```
 ### List
 
@@ -122,7 +123,7 @@ Transition from C++ to R takes a lot of time. Always try to find function suppor
 ## Linear Algebra: **RcppArmadillo**
 - Possible problems during installation and compilation: [-lgfortran and -lquadmath problem](http://thecoatlessprofessor.com/programming/rcpp-rcpparmadillo-and-os-x-mavericks-lgfortran-and-lquadmath-error)
 
-- When writing _RcppArmadillo_ source files, use `\#include <RcppArmadillo.h>` then `<Rcpp.h>` is spontaneously implied.
+- When writing _RcppArmadillo_ source files, use `#include <RcppArmadillo.h>` then `<Rcpp.h>` is spontaneously implied.
 - Include `using namespace arma;` to save the trouble of writing `arma::` everytime.
 
 - Basic variable types: **arma::mat, arma::vec**
@@ -276,6 +277,9 @@ _Rcpp_ provides many equivalents for R functions related to distributions, so yo
 	same parameters as in _R_. For parameter _log_, use `0/1` instead of `true/false`.
 
 ##### Poisson distribution
+
+##### Beta distribution
+- `R::dbeta(double x, double a, double b, int log)`
 
 ##### Gamma distribution
 - `R::rgamma(double shape, double scale)` : it only takes scale rather than rate as input. There is also a vectorized version:
