@@ -1,9 +1,10 @@
 ---
 title:  "Useful R tools"
-date:   2016-11-16
+date:   2016-12-06
 layout: single
 author_profile: true
 comments: true
+tags: [R]
 ---
 
 A great advantage of R over other statistical software (such as SAS, STATA) is that it is open source, and allows millions of programmers to contribute to the community.
