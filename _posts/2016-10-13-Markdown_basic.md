@@ -29,11 +29,12 @@ Example inputs:
 ##### smaller header
 ###### smallest header
 ```
-Outputs:   
-### medium header
-#### small header
-##### smaller header
-###### smallest header
+
+Outputs:      
+### medium header   
+#### small header   
+##### smaller header   
+###### smallest header   
 
 You can use up to 6 \# signs.
 
@@ -61,7 +62,7 @@ Could also use the same syntax to include images, just add `!` exclamation mark 
 ```
 ![local](/assets/batman.png)
 ```
-![local](/assets/batman.png)
+![local](/pics/batman.png)
 
 ### link to text on local page (named anchor)
 This is extremely useful if you write a long page, which makes it a headache if you have to scroll down  and down to reach certain text. 
@@ -136,14 +137,16 @@ Code to make a list:
 
 
 ## Insert Code
-- Inline code: you can just use \` your code here \`:
+- Inline code: you can just use \` your code here \`:   
 `int *fun(int x, int y)`
 
 - Include syntax highlighting:
+
 ```c
 int x=1, y=2;
 return x+y;
 ```
+
 This looks very similar to an _Rmarkdown_ chunk.
 
 ## Insert Tables
