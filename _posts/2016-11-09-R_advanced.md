@@ -1,6 +1,6 @@
 ---
 title:  "Useful R tools"
-date:   2016-12-06
+date:   2017-2-27
 layout: single
 author_profile: true
 comments: true
@@ -28,6 +28,8 @@ Tons of R packages are being created everyday. Mastering a couple of useful pack
 ## <a name="large_data"></a> How to read large datasets in R  
 
 Say you have one file as big as 10+ GB, but only a subset of the data would be useful. Reading the file as a whole basically copies the file in R,  takes a lot of space and requires large memory.   
+
+#### solution 1: line by line
 
 One way to solve is by importing dataset line by line. Check if this row is needed; if yes, save it; else go to next line.
 
@@ -61,6 +63,40 @@ close(con)
 
 The `file()` function enables users to build a connection to the specified file. When a connection is opened, one can incrementally read or write  a piece of data from or to the specified file, using functions such as `readLines, writeLines` etc.
 
+#### solution 2: `data.table` package
+
+A `data.table` is like a `data.frame`, but with much simpler manipulation operations. The package also enables faster data importation into `data.table` format:   
+`my_table = fread("file_name.txt")`
+
+**`data.table` subsetting**   
+Subsetting a data.table follows similar syntax as subsetting a data.frame: `DT[i,j,g]`, where `i` for rows, `j` for columns and `g` for grouping. 
+
+- `i`, row selection examples:   
+	`DT[1:3]`   
+	`DT[1:3,]`   or   
+	`DT[logical_vector,]` such as:  `DT[var1=="certain_value",]` 
+
+- `j`, column selection or column calculation:   
+	`DT[,1:3]` : select column 1 to 3     
+	`DT[,.(new_var =  var1 + var2)]` : only return the new column `new_var`   
+	`DT[,.(var1,var2)]` : column selection
+	`DT[,.(mean=sum(var1),max=max(var2))]`: column calculations   
+	`DT[selection, .N]`: `.N` is a special sentence to return number of observations
+
+- `g`: calculation by group:   
+	`DT[,.(mean_arr_delay = mean(arr_delay),.(carrier, origin)]` # mean arr_delay by carrier and origin
+	   
+	`DT[, .(mean_arr_delay = mean(arr_delay), .(distance > 1000)]` # mean arrival delay in flights with `distance > 1000` and `distance <= 1000`
+	- `with = `:   
+		some times we want to refer to columns by string variables , but data.table wouldn't recognize that. To be able to do this, we need to restore the data.frame functionality by setting `with=F`: 
+		
+	```r
+	x="arr_delay"  # column name in string
+	DT[,x, with=F]  # considered as data.frame if with=F
+	```
+
+
+More introductions: [data.table course](https://campus.datacamp.com/courses/data-table-data-manipulation-r-tutorial/chapter-one-datatable-novice?ex=1), and [data.table introduction](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html).
 
 ## <a name="dyplr"></a> Use package _dyplr_ for data handling
 
@@ -204,6 +240,10 @@ Plot `y` against `x`, and points are grouped by `group_var`, and point size dete
 + geom_smooth() 
  	# can be used in geom_point() mode to plot a smoothed line; 
  	# often used with subset() function embedded 
+ 	
++ geom_hline(yintercept = value, size = , color = )
++ geom_vline(xintercept = value, size = , color = )
+	# add horizontal, vertical lines
 
 + coord_polar() 
 	# use polar coordinate instead of the default cartesian coordinate.
@@ -229,7 +269,16 @@ Plot `y` against `x`, and points are grouped by `group_var`, and point size dete
 
 + coord_cartesian(xlim= , ylim= , expand= )
   # set coordinate limits
+
++ annotate("text",x,y,label="lable") 
+	# add text at coordinate (x,y)
 ```
+
+### FAQ:
+
+- [Rotate x-axis texts](http://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2)
+
+
 
 ## <a name="coda"></a> For Bayesians: _coda_
 
