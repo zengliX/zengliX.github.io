@@ -1,6 +1,6 @@
 ---
 title:  "Useful R tools"
-date:   2017-2-27
+date:   2017-3-21
 layout: single
 author_profile: true
 comments: true
@@ -17,6 +17,7 @@ Tons of R packages are being created everyday. Mastering a couple of useful pack
 - List of useful _R_ packages: [R packages](https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages)
 
 ### Quick links to contents:
+- [**R regular expressions**](#regex)
 - [**How to read in large datasets in R**](#large_data)
 - [**Use package _dyplr_ for data handling**](#dyplr)
 - [**Data cleaning: _tidyr_**](#tidyr)
@@ -24,6 +25,10 @@ Tons of R packages are being created everyday. Mastering a couple of useful pack
 - [**For Bayesians: _coda_**](#coda)
 - [**Use package _igraph_**](#igraph)
 - [**Others**](#others)
+
+## <a name="regex"></a> R regular expressions
+[Regular expression in R](http://stat545.com/block022_regular-expression.html)
+
 
 ## <a name="large_data"></a> How to read large datasets in R  
 
@@ -96,7 +101,20 @@ Subsetting a data.table follows similar syntax as subsetting a data.frame: `DT[i
 	```
 
 
-More introductions: [data.table course](https://campus.datacamp.com/courses/data-table-data-manipulation-r-tutorial/chapter-one-datatable-novice?ex=1), and [data.table introduction](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html).
+**`data.table` functions**   
+
+- `set(DT,i,j,value)`:    
+ used to change value of elements in a data.table. Eg:
+
+	```r
+	r = c(1:3)
+	c = c(1:3)
+	set(DT,r,c,value = 1) # set top left 3*3 to 1
+	```
+
+
+
+More introductions: [data.table cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf), and [data.table introduction](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html).
 
 ## <a name="dyplr"></a> Use package _dyplr_ for data handling
 
@@ -272,6 +290,9 @@ Plot `y` against `x`, and points are grouped by `group_var`, and point size dete
 
 + annotate("text",x,y,label="lable") 
 	# add text at coordinate (x,y)
+
++ theme(axis.text.x = element_text(angle = 90),hjust=1)
+	# rotate x axis text
 ```
 
 ### FAQ:
