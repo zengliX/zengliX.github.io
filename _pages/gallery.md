@@ -31,9 +31,9 @@ gallery3:
   - url: /pics/gallery/boston_squirrel.jpg
     image_path: /pics/gallery/boston_squirrel.jpg
     title: "Boston Common squirrel"  
-  - url: /pics/gallery/hugsy.jpg
-    image_path: /pics/gallery/hugsy.jpg
-    title: "Joey's Hugsy"
+  - url: /pics/gallery/NH_street.jpg
+    image_path: /pics/gallery/NH_street.jpg
+    title: "Street art on Chapel"
 ---
 
 {% include gallery caption="**Yale University**" %}
