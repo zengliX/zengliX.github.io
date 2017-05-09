@@ -13,5 +13,7 @@ main:
   #   url: /collection-archive/
   #- title: "Tags"
   #  url: /tags/
+  - title: "Gallery"
+    url: /gallery/
   - title: "External Links"
     url: /links/
