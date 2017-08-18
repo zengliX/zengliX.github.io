@@ -1,6 +1,6 @@
 ---
-title:  "How is this website built? (Jekyll and Minimal-mistakes theme)"
-date:   2016-11-17
+title:  "Build your own website (with Jekyll and Minimal-mistakes theme)"
+date:   2017-8-17
 layout: single
 author_profile: true
 comments: true
