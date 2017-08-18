@@ -24,6 +24,15 @@ gallery2:
   - url: /pics/gallery/antelop.jpg
     image_path: /pics/gallery/antelop.jpg
     title: "Antelope Canyon"
+  - url: /pics/gallery/sd.jpg
+    image_path: /pics/gallery/sd.jpg
+    title: "SD sea world: killer whale"
+  - url: /pics/gallery/yosemite.jpg
+    image_path: /pics/gallery/yosemite.jpg
+    title: "Yosemite National Park"
+  - url: /pics/gallery/panda.jpg
+    image_path: /pics/gallery/panda.jpg
+    title: "The superstar in SD Zoo"
 gallery3:
   - url: /pics/gallery/cat_thief.jpg
     image_path: /pics/gallery/cat_thief.jpg
