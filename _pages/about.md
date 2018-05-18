@@ -28,9 +28,9 @@ I am a 5th year PhD student at the Department of Biostatistics, Yale University.
 
 - [**SIFA**](https://github.com/zengliX/SIFA) (tumor **S**ubclone **I**dentification by **F**eature **A**llocation), 2017:      
 
- a Bayesian hierarchical model to identify tumor subclones and infer phylogenetic tree from WGS data
+	a Bayesian hierarchical model to identify tumor subclones and infer phylogenetic tree from WGS data
  
 - [**PKB**](https://github.com/zengliX/PKB) (**P**athway-based **K**ernel **B**oosting), 2017:
 
- a boosting framework using gene expression and pathway information for classification
+	a boosting framework using gene expression and pathway information for classification
  
