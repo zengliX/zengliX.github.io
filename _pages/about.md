@@ -22,15 +22,12 @@ I am a 5th year PhD student at the Department of Biostatistics, Yale University.
 
 
 ### Softwares:
-- [**PKB2**](https://github.com/zengliX/PKB2), 2018:
-
+- [**PKB2**](https://github.com/zengliX/PKB2), 2018:      
 	A general kernel-boosting framework. Use clinical features and gene expression from typical cancer genomic study datasets to predict outcomes of interest. Support classification, regression, and survival analysis.
 
-- [**SIFA**](https://github.com/zengliX/SIFA) (tumor **S**ubclone **I**dentification by **F**eature **A**llocation), 2017:      
-
+- [**SIFA**](https://github.com/zengliX/SIFA) (tumor **S**ubclone **I**dentification by **F**eature **A**llocation), 2017:            
 	a Bayesian hierarchical model to identify tumor subclones and infer phylogenetic tree from WGS data
  
-- [**PKB**](https://github.com/zengliX/PKB) (**P**athway-based **K**ernel **B**oosting), 2017:
-
+- [**PKB**](https://github.com/zengliX/PKB) (**P**athway-based **K**ernel **B**oosting), 2017:      
 	a boosting framework using gene expression and pathway information for classification
  
